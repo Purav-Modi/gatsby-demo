@@ -1,5 +1,23 @@
-import * as React from "react"
+import React from "react";
+import { useStaticQuery, graphql } from "gatsby";
 
-export default function Home() {
-  return <div>Hello world!</div>
-}
+const Home = () => {
+  const data = graphql`
+    {
+      users {
+        id
+        email
+        name
+      }
+    }
+  `;
+
+  return (
+    <div>
+      {console.log(data, "data")}
+      <h1>Fake GraphQL Query Example</h1>
+    </div>
+  );
+};
+
+export default Home;
